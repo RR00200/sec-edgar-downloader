@@ -102,7 +102,7 @@ def get_filing_urls_to_download(
                     return filings_to_fetch[:num_filings_to_download]
 
             search_result_url = elt.findtext("w3:filing-href", namespaces=W3_NAMESPACE)
-            edgar_url = re.sub(r"\-index\.html?", ".txt", search_result_url, 1)
+            edgar_url = re.sub(r"\-index\.html?", ".xml", search_result_url, 1)
             edgar_filename = edgar_url.split("/")[-1]
             filings_to_fetch.append(
                 FilingMetadata(filename=edgar_filename, url=edgar_url)
